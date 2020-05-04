@@ -57,11 +57,11 @@ export class ForecloseLoanComponent implements OnInit {
     });
 
     this.paymentForm = new FormGroup({
-      cardNumber: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]),
-      expiryDate: new FormControl('', [Validators.required, Validators.maxLength(50)]),
-      name: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
-      cvv: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]),
-      pin: new FormControl('', [Validators.required])
+      cardNumber: new FormControl('', [Validators.required, Validators.pattern("[0-9]{16}")]),
+      expiryDate: new FormControl('', [Validators.required, Validators.pattern("[0-9]{2}\/[0-9]{2}")]),
+      name: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
+      cvv: new FormControl('', [Validators.required, Validators.pattern("[0-9]{3}")]),
+      pin: new FormControl('',[Validators.required, Validators.pattern("[0-9]{4}")])
     });
   }
 

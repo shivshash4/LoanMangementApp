@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoanService } from 'src/app/services/loan.service';
 import { UserService } from 'src/app/services/user.service';
@@ -35,9 +35,9 @@ export class CalculateEmiComponent implements OnInit {
 
   ngOnInit(): void {
     this.calculateEmi = new FormGroup({
-      loanType: new FormControl('', []),
-      principle: new FormControl('', []),
-      duration: new FormControl('', [])
+      loanType: new FormControl('', [Validators.required]),
+      principle: new FormControl('', [Validators.required, Validators.pattern("[0-9]{1,10}")]),
+      duration: new FormControl('', [Validators.required, Validators.pattern("[0-9]{1,2}")])
     });
   }
   onSubmit() {

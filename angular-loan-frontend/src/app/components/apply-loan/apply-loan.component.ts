@@ -35,13 +35,13 @@ export class ApplyLoanComponent implements OnInit {
 
   ngOnInit() {
     this.loanForm = new FormGroup({
-      annualSalary: new FormControl('', [Validators.required]),
-      loanAmount: new FormControl('', [Validators.required]),
-      duration: new FormControl('',[Validators.required]),
-      loanType: new FormControl('', [Validators.required]),
-      differentAssest: new FormControl('', [Validators.required]),
-      assestValuation: new FormControl('', [Validators.required]),
-      referPerson: new FormControl('', [Validators.required]),
+      annualSalary: new FormControl('', [Validators.required,Validators.pattern("[0-9]{1,10}")]),
+      loanAmount: new FormControl('', [Validators.required,Validators.pattern("[0-9]{1,10}")]),
+      duration: new FormControl('',[Validators.required,Validators.pattern("[0-9]{1,2}")]),
+      loanType: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
+      differentAssest: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
+      assestValuation: new FormControl('', [Validators.required, Validators.pattern("[0-9]{1,10}")]),
+      referPerson: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
     });
   }
   onLoanSubmit() {

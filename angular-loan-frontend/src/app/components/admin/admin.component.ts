@@ -52,10 +52,10 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.loanRateForm = new FormGroup({
-      loanType: new FormControl('', [Validators.required]),
-      interestRate: new FormControl('', [Validators.required]),
-      lateCharges: new FormControl('', [Validators.required]),
-      foreclosureRate: new FormControl('', [Validators.required])
+      loanType: new FormControl('', [Validators.required,Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
+      interestRate: new FormControl('', [Validators.required, Validators.pattern("[-+]?[0-9]*\.?[0-9]*")]),
+      lateCharges: new FormControl('', [Validators.required, Validators.pattern("[-+]?[0-9]*\.?[0-9]*")]),
+      foreclosureRate: new FormControl('', [Validators.required, Validators.pattern("[-+]?[0-9]*\.?[0-9]*")])
     });
     this.userService.isUserLoggedIn.subscribe(value => {
       if (localStorage.length === 0)

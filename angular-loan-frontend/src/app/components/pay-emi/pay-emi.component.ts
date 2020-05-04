@@ -35,11 +35,11 @@ export class PayEmiComponent implements OnInit {
 
   ngOnInit() {
     this.paymentForm = new FormGroup({
-      cardNumber: new FormControl('', [Validators.required]),
-      expiryDate: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required]),
-      cvv: new FormControl('', [Validators.required]),
-      pin: new FormControl('',[Validators.required])
+      cardNumber: new FormControl('', [Validators.required, Validators.pattern("[0-9]{16}")]),
+      expiryDate: new FormControl('', [Validators.required, Validators.pattern("[0-9]{2}\/[0-9]{2}")]),
+      name: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z ]+[a-zA-Z]$")]),
+      cvv: new FormControl('', [Validators.required, Validators.pattern("[0-9]{3}")]),
+      pin: new FormControl('',[Validators.required, Validators.pattern("[0-9]{4}")])
     });
   }
   onPayment() {

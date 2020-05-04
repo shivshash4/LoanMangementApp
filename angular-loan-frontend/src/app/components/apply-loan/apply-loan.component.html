@@ -1,0 +1,50 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+        <div class="list-header-title"  >Loan Application Form</div>
+
+        <form [formGroup]="loanForm" (ngSubmit)="loanForm.valid && onLoanSubmit()" novalidate>
+            <div class="form-container">
+                <mat-form-field>
+                    <input id="annualSalary" matInput formControlName="annualSalary" [(ngModel)]="loanDetails.annualSalary"
+                        placeholder="Enter Annual Salary" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input id="loanAmount" matInput formControlName="loanAmount" [(ngModel)]="loanDetails.loanAmount"
+                        placeholder="Enter Loan Amount" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input id="duration" matInput formControlName="duration" [(ngModel)]="loanDetails.duration"
+                        placeholder="Enter Loan Term Plan in Year" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Select Loan Type</mat-label>
+                    <mat-select id="loanType" matInput formControlName="loanType" [(ngModel)]="loanDetails.loanType">
+                        <mat-option *ngFor="let loan of loanTypes" [value]="loan">
+                          {{loan}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>  
+
+                <mat-form-field>
+                    <input id="differentAssest" matInput formControlName="differentAssest" [(ngModel)]="loanDetails.differentAssest"
+                        placeholder="Enter Different Assest" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="assestValuation" matInput formControlName="assestValuation" [(ngModel)]="loanDetails.assestValuation"
+                        placeholder="Enter Assest Valuation" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="referPerson" matInput formControlName="referPerson" [(ngModel)]="loanDetails.referPerson"
+                        placeholder="Enter Name of Reference Person" />
+                </mat-form-field>
+
+
+                <button mat-button type="submit" class="mat-raised-button"
+                    [disabled]="!loanForm.valid">Apply For Loan</button>
+                <button mat-button routerLink="/" class="divider">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

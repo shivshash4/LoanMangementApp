@@ -1,0 +1,35 @@
+<div fxLayout="column" fxLayoutAlign="space-around" fxFlexFill>
+  <div fxFlex="10">
+    <mat-toolbar color="grey" class="navbar">
+      <mat-toolbar-row fxLayoutAlign="space-between center">
+        <div>
+          <button mat-button class="logo" routerLink="">
+            Loan Management Application
+          </button>
+        </div>
+        <div>
+          <div *ngIf="!isUserLoggedIn else logout">
+          <span><button mat-button routerLink="login">Login</button></span>
+          <span><button mat-button routerLink="signup">Signup</button></span>
+          </div>
+          <ng-template #logout>
+            <span><button mat-button >{{this.userName}}</button></span>
+          <span><button mat-button (click) = "onLogout()">Logout</button></span>
+          </ng-template>
+        </div>
+      </mat-toolbar-row> 
+    </mat-toolbar>
+  </div>
+  <div fxFlex="80">
+    <router-outlet></router-outlet>
+  </div>
+  <div fxFlex="10">
+    <mat-toolbar color="grey" class="navbar" class="sticky">
+      <mat-toolbar-row fxLayoutAlign="center center">
+        <div>
+          <span><button mat-button>Loan Management App @Copyright 2020</button></span>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </div>
+</div>

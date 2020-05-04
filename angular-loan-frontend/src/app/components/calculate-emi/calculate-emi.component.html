@@ -1,0 +1,31 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+        <div class="list-header-title">Calculate EMI</div>
+
+        <form [formGroup]="calculateEmi" (ngSubmit)="calculateEmi.valid && onSubmit()" novalidate>
+            <div class="form-container">
+                <mat-form-field>
+                    <mat-label>Select Loan Type</mat-label>
+                    <mat-select id="loanType" matInput formControlName="loanType" [(ngModel)]="selectedLoanType">
+                        <mat-option *ngFor="let loan of loanTypes" [value]="loan">
+                            {{loan}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <input id="principle" matInput formControlName="principle" [(ngModel)]="principle"
+                        placeholder="Enter principle amount" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="duration" matInput formControlName="duration" [(ngModel)]="duration"
+                        placeholder="Enter duration in years" />
+                </mat-form-field>
+                <h4>{{emiString}} {{this.emi | currency : 'INR'}}</h4>
+                <button mat-button type="submit" class="mat-raised-button"
+                    [disabled]="!calculateEmi.valid">Calculate</button>
+                <button mat-button routerLink="/" class="divider">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+        <div class="list-header-title"  >SignUp</div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" novalidate>
+            <div class="form-container">
+                <mat-form-field>
+                    <input id="userid" matInput formControlName="userid" [(ngModel)]="user.userid"
+                        placeholder="Enter your User Id" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="name" matInput formControlName="name" [(ngModel)]="user.name"
+                        placeholder="Enter your Name" />
+                </mat-form-field>  
+
+                <mat-form-field>
+                    <input id="mobNumber" matInput formControlName="mobNumber" [(ngModel)]="user.mobNumber"
+                        placeholder="Enter your Mobile number" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="panNumber" matInput formControlName="panNumber" [(ngModel)]="user.panNumber"
+                        placeholder="Enter your PAN number" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="aadhaarNumber" matInput formControlName="aadhaarNumber" [(ngModel)]="user.aadhaarNumber"
+                        placeholder="Enter your Aadhaar number" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="address" matInput formControlName="address" [(ngModel)]="user.address"
+                        placeholder="Enter your Address" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="password" matInput formControlName="password" [(ngModel)]="user.password"
+                        placeholder="Create strong Password" [type]="hide ? 'password':'text'" />
+                    <mat-icon matSuffix (click)="hide = !hide">
+                        {{hide ? 'visibility' : 'visibility_off'}}
+                    </mat-icon>
+                </mat-form-field>
+
+                <button mat-button type="submit" class="mat-raised-button"
+                    [disabled]="!loginForm.valid">SignUp</button>
+                <button mat-button routerLink="/" class="divider">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

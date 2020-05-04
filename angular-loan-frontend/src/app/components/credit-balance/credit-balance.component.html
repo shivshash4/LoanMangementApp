@@ -1,0 +1,36 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+        <div class="list-header-title">Credit Balance</div>
+        <mat-card class="example-card">
+            <div class="form-container">
+                <mat-card-header>
+                    <mat-card-title>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    Borrower Name: {{name}}
+                </mat-card-content>
+                <div *ngIf="!loanApplied else applied">
+                    <mat-card-content>
+                        You don't have any active loan, apply for loan now!
+                    </mat-card-content>
+                </div>
+
+                <ng-template #applied>
+                    <mat-card-content>
+                        Credit Amount: {{creditAmount | currency : 'INR'}}
+                    </mat-card-content>
+                    <mat-card-content>
+                        Balance Credit Amount: {{balanceAmount | currency : 'INR'}}
+                    </mat-card-content>
+                    <mat-card-content>
+                        Number of EMI to be paid: {{numberOfEMI}}
+                    </mat-card-content>
+                </ng-template>
+                <mat-card-actions>
+                    <button mat-button class="mat-raised-button" routerLink="/facility">BACK</button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>
+</div>

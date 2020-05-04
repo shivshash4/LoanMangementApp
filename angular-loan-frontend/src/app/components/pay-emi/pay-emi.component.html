@@ -1,0 +1,41 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+        <div class="list-header-title">Pay EMI</div>
+        <div class="list-header-toptitle">Borrower Name: {{borrower}}</div>
+        <div class="list-header-subtitle">EMI Amount: {{amount | currency : 'INR'}}</div>
+        <div class="list-header-subtitle">Due Date: 5 {{date | date : 'MMM'}}</div>
+
+        <form [formGroup]="paymentForm" (ngSubmit)="paymentForm.valid && onPayment()" novalidate>
+            <div class="form-container">
+                <mat-form-field>
+                    <input id="cardNumber" matInput formControlName="cardNumber" [(ngModel)]="credential.cardNumber"
+                        placeholder="Enter Card Number" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="name" matInput formControlName="name" [(ngModel)]="credential.name"
+                        placeholder="Enter your Name" />
+                </mat-form-field>  
+
+                <mat-form-field>
+                    <input id="expiryDate" matInput formControlName="expiryDate" [(ngModel)]="credential.expiryDate"
+                        placeholder="Expiry Date" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="cvv" matInput formControlName="cvv" [(ngModel)]="credential.cvv"
+                        placeholder="CVV" />
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input id="pin" matInput formControlName="pin" [(ngModel)]="credential.pin"
+                        placeholder="4 Digit Pin" type="password"/>
+                </mat-form-field>
+
+                <button mat-button type="submit" class="mat-raised-button"
+                    [disabled]="!paymentForm.valid">Pay</button>
+                <button mat-button routerLink="/" class="divider">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

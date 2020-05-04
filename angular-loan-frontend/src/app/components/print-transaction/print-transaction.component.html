@@ -1,0 +1,29 @@
+<div class="medium-list">
+    <div class="list-viewer-wrapper">
+        <div class="list-header-title">Print Transaction</div>
+        <mat-card class="example-card">
+            <div class="form-container">
+                <mat-card-header>
+                    <mat-card-title>
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    Borrower Name: {{name}}
+                </mat-card-content>
+                <mat-card-content>
+                    Credit Amount: {{amount}}
+                </mat-card-content>
+                <mat-card-content>
+                    Balance Credit Amount: {{balance}}
+                </mat-card-content>
+                <mat-card-content>
+                    Number of EMI paid EMI: {{paidEmi}}
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button class="mat-raised-button" routerLink="/facility">Back</button>
+                    <button mat-button class="mat-raised-button" (click)="onPrint()">Print</button>
+                </mat-card-actions>
+            </div>
+        </mat-card>
+    </div>
+</div>
